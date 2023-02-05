@@ -1,7 +1,6 @@
 import './App.css'
 import NavBar from './components/NavBar/NavBar' 
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 
 function app(){
   return (
@@ -15,9 +14,7 @@ function app(){
         aboutUs="About Us"
         iconCart="./assets/ShoppingCart.svg"
     />
-    <ItemListContainer
-      message="esto es un contenedor"
-    />
+    <ItemListContainer/>
     </div>
     </>
   );

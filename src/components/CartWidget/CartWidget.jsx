@@ -1,7 +1,5 @@
 import React from 'react'
-import { IconDiv } from './CartWidget.styled';
-import { NotificationIcon } from './CartWidget.styled';
-import { ShoppingCart } from './CartWidget.styled';
+import { IconDiv, NotificationIcon, ShoppingCart } from './CartWidget.styled';
 
 const CartWidget = () => {
     return (

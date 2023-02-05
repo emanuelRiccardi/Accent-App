@@ -1,14 +1,53 @@
 import React from 'react'
-import { ListContainer } from './ItemListContainer.styled';
+import { useEffect, useState } from 'react';
+import { gFetch } from '../../../utils/gFetch';
+import ItemsContainer from '../Container/ItemsContainer';
+import Item from '../Item/Item';
 
-const ItemListContainer = (props) => {
-    const {message} = props;
+export const ItemListContainer = ( {saludos}) => {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading ] = useState(true)
+
+    useEffect(()=>{
+        gFetch()
+        .then(resp => setProducts(resp))
+        .catch( err => console.log(err))
+        .finally( ()=> setLoading(false))
+    }, [])
     
+
     return (
-        <ListContainer>
-            {message}
-        </ListContainer>
+        <>
+        <h2>{saludos}</h2>
+            { loading ? 
+                    
+                        <h2>Cargando ...</h2>
+                    
+                    
+                : 
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center'
+                }}>
+                    {   products.map( product => (
+                        <Item
+                            key={product.id}
+                            id={product.id}
+                            text={product.name}
+                            descrip={product.category}
+                            image={product.img}
+                            pr={product.price}
+                            
+                        /> 
+
+                    ))
+
+                    }
+
+                </div>
+            }
+        </>
     )
 }
-
-export default ItemListContainer

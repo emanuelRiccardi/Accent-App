@@ -1,11 +1,5 @@
 import React from 'react'
-import { Navbar } from './NavBar.styled';
-import { Sections } from './NavBar.styled';
-import { Logo } from './NavBar.styled';
-import { LogoText } from './NavBar.styled';
-import { Items } from './NavBar.styled';
-import { Itemdiv } from './NavBar.styled';
-import { Item } from './NavBar.styled';
+import { Navbar, Sections, Logo, LogoText, Items, Itemdiv, Item } from './NavBar.styled';
 import CartWidget from '../CartWidget/CartWidget';
 
 
