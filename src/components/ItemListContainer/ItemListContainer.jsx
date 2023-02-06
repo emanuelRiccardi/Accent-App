@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { gFetch } from '../../../utils/gFetch';
-import ItemsContainer from '../Container/ItemsContainer';
+import ItemsList from '../ItemList/ItemList';
 import Item from '../Item/Item';
 
 export const ItemListContainer = ( {saludos}) => {
@@ -25,12 +25,7 @@ export const ItemListContainer = ( {saludos}) => {
                     
                     
                 : 
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center'
-                }}>
+                <ItemsList>
                     {   products.map( product => (
                         <Item
                             key={product.id}
@@ -39,14 +34,10 @@ export const ItemListContainer = ( {saludos}) => {
                             descrip={product.category}
                             image={product.img}
                             pr={product.price}
-                            
                         /> 
-
                     ))
-
                     }
-
-                </div>
+                </ItemsList>
             }
         </>
     )

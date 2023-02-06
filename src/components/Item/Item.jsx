@@ -16,7 +16,7 @@ function Item(props) {
             </ItemInfo>
             <ItemPrice>
                 <Ellipse/>
-                <Price>{props.pr}</Price>
+                <Price>${props.pr}</Price>
             </ItemPrice>
         </ItemContainer>
     )
@@ -27,6 +27,6 @@ export default Item
 
 function ItemButton (){
     return(
-        <Button>ADD TO CART</Button>
+        <Button>SEE DETAILS</Button>
     )
 }
