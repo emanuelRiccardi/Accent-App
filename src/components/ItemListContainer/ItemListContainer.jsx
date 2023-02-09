@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { gFetch } from '../../../utils/gFetch';
-import ItemsList from '../ItemList/ItemList';
-import Item from '../Item/Item';
+import ItemList from '../ItemList/ItemList';
+
 
 export const ItemListContainer = ( {saludos}) => {
     const [products, setProducts] = useState([])
@@ -18,26 +18,14 @@ export const ItemListContainer = ( {saludos}) => {
 
     return (
         <>
-        <h2>{saludos}</h2>
             { loading ? 
                     
                         <h2>Cargando ...</h2>
                     
                     
                 : 
-                <ItemsList>
-                    {   products.map( product => (
-                        <Item
-                            key={product.id}
-                            id={product.id}
-                            text={product.name}
-                            descrip={product.category}
-                            image={product.img}
-                            pr={product.price}
-                        /> 
-                    ))
-                    }
-                </ItemsList>
+                <ItemList products={products} />
+
             }
         </>
     )

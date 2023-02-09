@@ -1,11 +1,24 @@
 import React from 'react'
-import { ItemList } from './ItemList.syled'
+import { List } from './ItemList.syled'
+import Item from '../Item/Item';
 
-
-function ItemsList() {
+function ItemList(props) {
+    const { products } = props;
     return (
-        <ItemList/>
+        <List>
+            {   products.map( product => (
+                        <Item
+                            key={product.id}
+                            id={product.id}
+                            text={product.name}
+                            descrip={product.category}
+                            image={product.img}
+                            pr={product.price}
+                        /> 
+                    ))
+                    }
+        </List>
     )
 }
 
-export default ItemsList
+export default ItemList

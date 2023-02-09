@@ -18,3 +18,16 @@ export const gFetch = () => new Promise( (res, rej)=>{
         
     }
 })
+
+
+export const gFetch1 = () => new Promise( (res, rej) =>{
+    let condition = true
+    if (condition) {
+        setTimeout(()=>{
+            res(products[1])    
+        }, 2000)
+    } else {
+        rej('error trying to fetch item detail')
+        
+    }
+})
