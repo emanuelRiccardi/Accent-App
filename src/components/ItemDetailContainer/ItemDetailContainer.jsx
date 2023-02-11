@@ -1,18 +1,24 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { gFetch1 } from '../../../utils/gFetch';
+import { useParams } from 'react-router-dom';
+import { gFetch } from '../../../utils/gFetch';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 export const ItemDetailContainer = () => {
-    const [product, setProduct] = useState([])
+    
+    const { productId }  = useParams()
+
+    const [products, setProducts] = useState([])
     const [loading, setLoading ] = useState(true)
 
     useEffect(()=>{
-        gFetch1()
-        .then(resp => setProduct(resp))
-        .catch( err => console.log(err))
-        .finally( ()=> setLoading(false))
-    }, [])
+        if(productId){
+            gFetch()
+            .then(resp => setProducts(resp.find(product=> product.id=== productId)))
+            .catch( err => console.log(err))
+            .finally( ()=> setLoading(false))
+        }
+    }, [productId])
 
     return(
         <>
@@ -22,8 +28,8 @@ export const ItemDetailContainer = () => {
                     
                     
                 : 
-                <ItemDetail product={product} />
-
+                <ItemDetail products={products} />
+                
             }
         </>
     )

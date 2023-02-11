@@ -1,13 +1,13 @@
 import React from 'react'
-import { Detail } from './ItemDetail.styled';
-import Item from '../Item/Item';
+import { Container } from './ItemDetail.styled';
+import OneItem from '../OneItem/OneItem';
 
 function ItemDetail(props) {
-    const { product } = props;
+    const { products } = props;
     return (
-        <Detail>
-            {   product.find( product => (
-                        <Item
+        <Container>
+            {   products.map( product => (
+                        <OneItem
                             key={product.id}
                             id={product.id}
                             text={product.name}
@@ -16,8 +16,8 @@ function ItemDetail(props) {
                             pr={product.price}
                         /> 
                     ))
-                    }
-        </Detail>
+            }
+        </Container>
     )
 }
 

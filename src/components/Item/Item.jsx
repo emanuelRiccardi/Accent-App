@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ItemContainer, ItemInfo, ItemImg, ItemDescriptiveText, Title, Description, Button, ItemPrice, Ellipse, Price } from './Item.styled'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 function Item(props) {
@@ -12,7 +13,9 @@ function Item(props) {
                         <Title>{props.text}</Title>
                         <Description>{props.descrip}</Description>
                     </ItemDescriptiveText>
-                <ItemButton/>
+                <Link to={`/detail/${props.id}`}>
+                    <ItemButton/>
+                </Link>
             </ItemInfo>
             <ItemPrice>
                 <Ellipse/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, Sections, Logo, LogoText, Items, Itemdiv, Item } from './NavBar.styled';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const NavBar = (props) => {
@@ -9,15 +10,18 @@ const NavBar = (props) => {
     <Navbar>
         <Sections>
             <Logo>
-                <LogoText>{titleIcon}</LogoText>
+                <NavLink to='/'>{titleIcon}</NavLink>
+                {/* <LogoText>{titleIcon}</LogoText> */}
             </Logo>
         <Items>
             <Itemdiv>
-                    <Item>{furniture}</Item>
+                    <NavLink to='category/sofa'> {furniture} </NavLink>
+                    {/* <Item>{furniture}</Item> */}
             </Itemdiv>
             
             <Itemdiv>
-                    <Item>{bundles}</Item>
+                    <NavLink to='category/table'> {bundles} </NavLink>
+                    {/* <Item>{bundles}</Item> */}
             </Itemdiv>
 
             <Itemdiv>

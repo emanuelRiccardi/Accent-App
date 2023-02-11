@@ -16,7 +16,7 @@ function ItemList(props) {
                             pr={product.price}
                         /> 
                     ))
-                    }
+            }
         </List>
     )
 }
