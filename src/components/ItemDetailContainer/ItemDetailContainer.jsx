@@ -8,13 +8,13 @@ export const ItemDetailContainer = () => {
     
     const { productId }  = useParams()
 
-    const [products, setProducts] = useState([])
+    const [product, setProduct] = useState([])
     const [loading, setLoading ] = useState(true)
 
     useEffect(()=>{
         if(productId){
             gFetch()
-            .then(resp => setProducts(resp.find(product=> product.id=== productId)))
+            .then(resp => setProduct(resp.find(product=> product.id=== productId)))
             .catch( err => console.log(err))
             .finally( ()=> setLoading(false))
         }
@@ -28,7 +28,7 @@ export const ItemDetailContainer = () => {
                     
                     
                 : 
-                <ItemDetail products={products} />
+                <ItemDetail product={product} />
                 
             }
         </>

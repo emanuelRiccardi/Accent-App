@@ -10,8 +10,8 @@ function app() {
     <BrowserRouter>
     <NavBar
         titleIcon="Accent"
-        furniture="Furniture"
-        bundles="Bundles"
+        furniture="sofas"
+        bundles="tables"
         journal="Journal"
         aboutUs="About Us"
         iconCart="./assets/ShoppingCart.svg"

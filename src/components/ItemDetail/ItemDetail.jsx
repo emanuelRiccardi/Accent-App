@@ -3,20 +3,19 @@ import { Container } from './ItemDetail.styled';
 import OneItem from '../OneItem/OneItem';
 
 function ItemDetail(props) {
-    const { products } = props;
+    const { product } = props;
     return (
         <Container>
-            {   products.map( product => (
-                        <OneItem
-                            key={product.id}
-                            id={product.id}
-                            text={product.name}
-                            descrip={product.category}
-                            image={product.img}
-                            pr={product.price}
-                        /> 
-                    ))
-            }
+
+            <OneItem
+                key={product.id}
+                id={product.id}
+                text={product.name}
+                descrip={product.category}
+                image={product.img}
+                pr={product.price}
+            />
+
         </Container>
     )
 }

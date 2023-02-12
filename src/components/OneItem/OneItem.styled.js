@@ -62,6 +62,7 @@ export const Category = styled.h2`
 
 export const Description = styled.p`
     position: relative;
+    color: #FFFAE5;
     width: 100%;
     height: auto;
     letter-spacing: 0;
@@ -77,6 +78,7 @@ export const Button = styled.button`
     border-radius: 2px;
     border: 2px solid;
     border-color: #FFFAE5;
+    background-color: #5A8B77;
     font-weight: 600px;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
