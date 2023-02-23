@@ -5,7 +5,7 @@ const CartWidget = () => {
     return (
         <IconDiv>
             <ShoppingCart/>
-            <NotificationIcon> 0</NotificationIcon>
+            <NotificationIcon> 0 </NotificationIcon>
         </IconDiv>
     )
 }

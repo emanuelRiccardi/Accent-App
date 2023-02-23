@@ -32,7 +32,7 @@ const NavBar = (props) => {
                     <Item>{aboutUs}</Item>
             </Itemdiv>
 
-            <CartWidget/>
+            <NavLink to='/cart'> <CartWidget/> </NavLink> 
         </Items>
         </Sections>
     </Navbar>

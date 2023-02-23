@@ -5,25 +5,29 @@ export const Detail = styled.div`
     position: relative;
     width: 100%;
     align-items: center;
-    gap: 44px;
+    gap: 40px;
     background-color: #5A8B77;
+    margin-left: 50px;
+    margin-right: 50px;
 `;
 
 export const ImgContainer = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
-    align-items: flex-start;
     gap: 10px;
-    padding: 33px 79px;
+    /* padding: 33px 79px; */
+    width: 500px;
+    height: 400px;
     position: relative;
     background-color: #4A7262;
 `;
 
 export const Img = styled.img`
     position: relative;
-    min-width: 377px;
-    height: 355px;
+    width: 350px;
+    height: auto;
 `;
 
 export const Elements = styled.div`
@@ -108,3 +112,4 @@ export const Price = styled.div`
     letter-spacing: 0;
     line-height: normal;
 `;
+

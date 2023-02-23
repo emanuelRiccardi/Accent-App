@@ -3,9 +3,10 @@
 /* #root {
   width: 100%;
   margin: 0;
-} */
+  border: 3px solid blue;
+} 
 
-/* .screen a{
+.screen a{
   display: contents;
   text-decoration: none;
 }   */

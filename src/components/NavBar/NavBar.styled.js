@@ -17,7 +17,7 @@ export const Navbar = styled.div`
     height: 95px;
     align-items: flex-start;
     gap: 10px;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     background-color: #fffae5;
 `;
 

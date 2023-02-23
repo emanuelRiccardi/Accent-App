@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import { ItemCountContainer, ButtonAddToCart, Panel } from './ItemCount.styled';
+import InputCount from "../InputCount/InputCount";
+import { ItemCountContainer, ButtonCount1, Panel } from './ItemCount.styled';
 
-function ItemCount() {
+function ItemCount({ initial = 1, stock = 10, onAdd }) {
 
-    // { initial = 1, stock = 10, onAdd }
+    const [inputType, setInputType] = useState('button')
 
-    const [stock, setStock] = useState(10);
-    const [count, setCount] = useState(1);
+    const handleInter = () => {
+        setInputType('input')
+    }
+
+    const [count, setCount] = useState(initial);
 
     const handleAdd = () => {
         if (count < stock) {
@@ -14,14 +18,10 @@ function ItemCount() {
         }
     };
     const handleSubtract = () => {
-        if (count > 0) {
+        if (count > initial) {
             setCount(count - 1);
         }
     };
-
-    const handleOnAdd = () => {
-        console.log({count});
-    }
 
     return (
         <ItemCountContainer>
@@ -38,10 +38,24 @@ function ItemCount() {
                     <button onClick={handleSubtract}> - </button>
                 </div>
             </Panel>
-
             <div>
-                <ButtonAddToCart onClick={handleOnAdd}> Add to cart </ButtonAddToCart>
-            </div>
+                {
+                    inputType === 'button' ?
+                        <>
+                            <ButtonCount1
+                                onClick={() => {
+                                    onAdd(count)
+                                    handleInter()
+                                }}
+                            >
+                                ADD TO CART
+                            </ButtonCount1>
+                        </>
+                            :
+                            <InputCount />
+                }
+                        </div>
+
         </ItemCountContainer>
     )
 }

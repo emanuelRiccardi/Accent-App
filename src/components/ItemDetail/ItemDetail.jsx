@@ -2,8 +2,12 @@ import React from 'react'
 import { Container } from './ItemDetail.styled';
 import OneItem from '../OneItem/OneItem';
 
+
 function ItemDetail(props) {
+
     const { product } = props;
+
+
     return (
         <Container>
 
@@ -15,7 +19,6 @@ function ItemDetail(props) {
                 image={product.img}
                 pr={product.price}
             />
-
         </Container>
     )
 }

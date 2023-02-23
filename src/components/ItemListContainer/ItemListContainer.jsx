@@ -14,7 +14,7 @@ export const ItemListContainer = ( {saludos}) => {
     
     if ( categoryId ){
         gFetch()
-        .then(resp => setProducts(resp.filter(product=> product.category=== categoryId )))
+        .then(resp => setProducts(resp.filter(product=> product.category === categoryId )))
         .catch( err => console.log(err))
         .finally( ()=> setLoading(false))
     }
