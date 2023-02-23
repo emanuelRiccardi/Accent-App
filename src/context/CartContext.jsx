@@ -35,7 +35,7 @@ export const CartContextProvider = ({children}) => {
         setCartList([])
     }
 
-    
+    console.log(totalPrice)
     return (
             <CartContext.Provider value={{
                 cartList, 
