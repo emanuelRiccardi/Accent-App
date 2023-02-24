@@ -1,13 +1,29 @@
 import { useCartContext } from "../../context/CartContext"
+import { useEffect, useState } from 'react';
 import { CartItemContainer, CartImg, InfoContainer, InfoTop, InfoBottom, MainText, ProdQuantity, Button, Margins } from "./CartContainer.styled"
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
 
     const { cartList, emptyCart, removeProduct, totalPrice } = useCartContext()
+    const [loading, setLoading ] = useState(false);
+
+    useEffect(()=>{
+        if ( cartList.length != 0 ) {
+            setLoading(true)
+        }
+        else{
+            setLoading(false)
+        }
+    }, [cartList])
 
     return (
-        <Margins>
-            {
+        <>
+        {
+            loading ?
+
+            <Margins>
+            {   
                 cartList.map(prodCart => (
                     <CartItemContainer key={prodCart.id}>
                         <CartImg src={prodCart.image}/>
@@ -17,18 +33,28 @@ const CartContainer = () => {
                                 <MainText>{prodCart.pr}</MainText>
                             </InfoTop>
                             <InfoBottom>
-                                <ProdQuantity>{prodCart.quantity}</ProdQuantity>
-                                <Button onClick={removeProduct}>REMOVE</Button>
+                                <ProdQuantity>x{prodCart.quantity}</ProdQuantity>
+                                <Button onClick={()=> removeProduct(prodCart.id)}>REMOVE</Button>
                             </InfoBottom>
                         </InfoContainer>
                     </CartItemContainer>
                 ))
             }
-            <>
-                <MainText> Total Price: ${totalPrice}</MainText>
-                <Button onClick={emptyCart}> EMPTY CART</Button>
-            </>
-        </Margins>
+                    <MainText> Total Price: ${totalPrice()}</MainText>
+                    <Button onClick={emptyCart}> EMPTY CART</Button>
+            </Margins>
+
+            : 
+
+            <div>
+                <h2> Looks like your cart its empty</h2>
+                <Link to='/'>
+                    <Button>Back to home</Button>
+                </Link>
+            </div>
+            
+        }
+        </>
     )
 }
 

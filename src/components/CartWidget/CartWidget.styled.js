@@ -24,3 +24,7 @@ export const NotificationIcon = styled.div`
     text-align: center;
     line-height: 17px;
 `;
+
+export const NotificationIconEmpty = styled.div`
+    display: none;
+`;
