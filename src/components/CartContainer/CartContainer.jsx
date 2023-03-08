@@ -1,6 +1,7 @@
 import { useCartContext } from "../../context/CartContext"
 import { useEffect, useState } from 'react';
 import { CartItemContainer, CartImg, InfoContainer, InfoTop, InfoBottom, MainText, ProdQuantity, Button, Margins } from "./CartContainer.styled"
+import OrderForm from "../Form/OrderForm";
 import { Link } from "react-router-dom";
 
 const CartContainer = () => {
@@ -42,12 +43,13 @@ const CartContainer = () => {
             }
                     <MainText> Total Price: ${totalPrice()}</MainText>
                     <Button onClick={emptyCart}> EMPTY CART</Button>
+                    <OrderForm/>
             </Margins>
 
             : 
 
             <div>
-                <h2> Looks like your cart its empty</h2>
+                <h2> Looks like your cart is empty</h2>
                 <Link to='/'>
                     <Button>Back to home</Button>
                 </Link>

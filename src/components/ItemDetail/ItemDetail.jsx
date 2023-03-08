@@ -16,6 +16,7 @@ function ItemDetail(props) {
                 id={product.id}
                 text={product.name}
                 descrip={product.category}
+                info={product.description}
                 image={product.img}
                 pr={product.price}
             />

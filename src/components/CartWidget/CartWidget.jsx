@@ -5,19 +5,17 @@ import { IconDiv, NotificationIcon, ShoppingCart, NotificationIconEmpty } from '
 
 const CartWidget = () => {
     
-    const { totalQuantity } = useCartContext()
+    const { cartList, totalQuantity } = useCartContext()
     const [ifEmpty, setIfEmpty ] = useState();
 
     useEffect(()=>{
         if (totalQuantity() >= 1){
             setIfEmpty(true)
-            console.log('mayor a cero verdadero')
         }
         if (totalQuantity() === 0){
             setIfEmpty(false)
-            console.log('mayor a cero falso')
         }
-    }, [ifEmpty])
+    }, [cartList])
 
     return (
         <IconDiv>
