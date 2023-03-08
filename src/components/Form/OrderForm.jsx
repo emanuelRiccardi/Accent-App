@@ -19,7 +19,10 @@ function OrderForm() {
         const order ={}
         order.buyer = dataForm
         order.totalPrice = totalPrice()
-        order.products = cartList.map(({id, name, price}) => ({id, name, price}))
+        // order.products = cartList.map(({id, name, price}) => ({id, name, price}))
+        order.products = cartList
+        .filter(({name, price}) => name && price) 
+        .map(({id, name, price}) => ({id, name, price}));
         console.log(order)
 
         const db = getFirestore()
