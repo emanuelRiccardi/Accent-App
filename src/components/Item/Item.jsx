@@ -1,24 +1,22 @@
-import styled, { css } from 'styled-components'
-import { ItemContainer, ItemInfo, ItemImg, ItemDescriptiveText, Title, Description, Button, ItemPrice, Ellipse, Price } from './Item.styled'
-import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { ItemContainer, ItemInfo, ItemImg, ItemDescriptiveText, Title, Description, Button, ItemPrice, Ellipse, Price } from './Item.styled'
 
 function Item(props) {
     return (
         <ItemContainer key={props.id}>
             <ItemInfo>
-                <ItemImg src={props.image}/>
-                    <ItemDescriptiveText>
-                        <Title>{props.text}</Title>
-                        <Description>{props.descrip}</Description>
-                    </ItemDescriptiveText>
+                <ItemImg src={props.image} />
+                <ItemDescriptiveText>
+                    <Title>{props.text}</Title>
+                    <Description>{props.descrip}</Description>
+                </ItemDescriptiveText>
                 <Link to={`/detail/${props.id}`}>
-                    <ItemButton/>
+                    <ItemButton />
                 </Link>
             </ItemInfo>
             <ItemPrice>
-                <Ellipse/>
+                <Ellipse />
                 <Price>${props.pr}</Price>
             </ItemPrice>
         </ItemContainer>
@@ -28,8 +26,8 @@ function Item(props) {
 export default Item
 
 
-function ItemButton (){
-    return(
+function ItemButton() {
+    return (
         <Button>SEE DETAILS</Button>
     )
 }

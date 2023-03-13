@@ -17,7 +17,6 @@ export const ImgContainer = styled.div`
     align-items: center;
     width: fit-content;
     gap: 10px;
-    /* padding: 33px 79px; */
     width: 500px;
     height: 400px;
     position: relative;
@@ -73,22 +72,6 @@ export const Description = styled.p`
     line-height: normal;
 `;
 
-export const Button = styled.button`
-    display: flex;
-    width: fit-content;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 13px 21px;
-    border-radius: 2px;
-    border: 2px solid;
-    border-color: #FFFAE5;
-    background-color: #5A8B77;
-    font-weight: 600px;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    color: #FFFAE5;
-`;
-
 export const PriceTag = styled.div`
     position: absolute;
     top: 6px;
@@ -99,7 +82,7 @@ export const PriceTag = styled.div`
     background-color: #FACA7B;
 `;
 
-export const Price = styled.div`
+export const Price = styled.h3`
     color: #5A8B77;
     font-weight: 700;
     font-family: "Poppins" , sans-serif;
@@ -107,7 +90,6 @@ export const Price = styled.div`
     margin-top: 8px;
     width: 54px;
     height: 36px;
-    margin-left: 30px;
     position: relative;
     letter-spacing: 0;
     line-height: normal;

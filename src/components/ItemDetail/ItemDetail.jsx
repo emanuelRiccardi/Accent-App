@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container } from './ItemDetail.styled';
 import OneItem from '../OneItem/OneItem';
 
@@ -6,7 +5,6 @@ import OneItem from '../OneItem/OneItem';
 function ItemDetail(props) {
 
     const { product } = props;
-
 
     return (
         <Container>

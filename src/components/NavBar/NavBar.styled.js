@@ -1,14 +1,19 @@
 import styled, {css} from "styled-components";
-import './NavBar.css'
+import { Link } from 'react-router-dom';
 
 export const Poppins18px = css`
     color: black;
-    
-    font-weight: 800;
+    font-weight: 600;
     font-style: normal;
 `;
 
-// Navbar.styled.jsx
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 
 export const Navbar = styled.div`
     display: flex;
@@ -17,8 +22,9 @@ export const Navbar = styled.div`
     height: 95px;
     align-items: flex-start;
     gap: 10px;
-    /* padding: 10px 20px; */
     background-color: #fffae5;
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
 `;
 
 export const Sections = styled.div`
@@ -40,8 +46,9 @@ export const Logo = styled.div`
 export const LogoText = styled.h1`
     flex: 1;
     width: auto;
-    font-family: font-family-newsreader;
+    font-family: 'Newsreader', serif;
     font-weight: 800;
+    font-size: 30px;
     font-style: italic;
     color: black;
     letter-spacing: 0;

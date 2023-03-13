@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 export const IconDiv = styled.div`

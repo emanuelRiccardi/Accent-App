@@ -1,14 +1,24 @@
-import React from 'react'
 import styled from 'styled-components'
 
 
 export const ItemCountContainer = styled.div`
-    width: 350px;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+`;
+
+export const CountNumber = styled.label`
+    font-size: 25px;
+    font-weight: 600px;
+    color: #FFFAE5;
+    font-family: "Poppins", sans-serif;
 `;
 
 export const Panel = styled.div`
     width: 350px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 `;
 

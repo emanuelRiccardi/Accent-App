@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 
 export const ItemContainer = styled.div`
@@ -68,6 +68,7 @@ export const Button = styled.button`
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     color: #5A8B77;
+    background-color: #FFFAE5;
 `;
 
 export const ItemPrice = styled.div`

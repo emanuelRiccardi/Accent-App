@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+
 import InputCount from "../InputCount/InputCount";
-import { ItemCountContainer, ButtonCount1, Panel } from './ItemCount.styled';
+import { ItemCountContainer, ButtonCount1, Panel, CountNumber } from './ItemCount.styled';
 
 function ItemCount({ initial = 1, stock = 10, onAdd }) {
 
@@ -25,19 +26,7 @@ function ItemCount({ initial = 1, stock = 10, onAdd }) {
 
     return (
         <ItemCountContainer>
-            <Panel>
-                <div>
-                    <button onClick={handleAdd}> + </button>
-                </div>
 
-                <div>
-                    <label>{count}</label>
-                </div>
-
-                <div>
-                    <button onClick={handleSubtract}> - </button>
-                </div>
-            </Panel>
             <div>
                 {
                     inputType === 'button' ?
@@ -51,10 +40,24 @@ function ItemCount({ initial = 1, stock = 10, onAdd }) {
                                 ADD TO CART
                             </ButtonCount1>
                         </>
-                            :
-                            <InputCount />
+                        :
+                        <InputCount />
                 }
-                        </div>
+            </div>
+
+            <Panel>
+                <div>
+                    <ButtonCount1 onClick={handleAdd}> + </ButtonCount1>
+                </div>
+
+                <div>
+                    <CountNumber>{count}</CountNumber>
+                </div>
+
+                <div>
+                    <ButtonCount1 onClick={handleSubtract}> - </ButtonCount1>
+                </div>
+            </Panel>
 
         </ItemCountContainer>
     )

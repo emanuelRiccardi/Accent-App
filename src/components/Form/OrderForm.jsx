@@ -1,87 +1,104 @@
-import { addDoc, collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import { useState } from 'react';
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
+
 import { useCartContext } from "../../context/CartContext"
-import React from 'react'
-import { useEffect, useState } from 'react';
-import { InputContainer, Input } from './OrderForm.styled'
+import { InputContainer, Input, CustomerForm } from './OrderForm.styled'
+import { Button } from '../Item/Item.styled'
 
-function OrderForm() {
+function OrderForm(props) {
 
-    const { cartList, totalPrice } = useCartContext()
+    const { cartList, totalPrice, emptyCart } = useCartContext()
+
+    const { setId } = props
 
     const [dataForm, setDataForm] = useState({
-        name:'',
-        phone:'',
-        email:''
+        name: '',
+        phone: '',
+        email: '',
+        validateEmail: ''
     })
 
-    const generateOrder = (event) =>{
+    const generateOrder = (event) => {
         event.preventDefault()
-        const order ={}
+        const order = {}
         order.buyer = dataForm
         order.totalPrice = totalPrice()
-        // order.products = cartList.map(({id, name, price}) => ({id, name, price}))
         order.products = cartList
-        .filter(({name, price}) => name && price) 
-        .map(({id, name, price}) => ({id, name, price}));
-        console.log(order)
+            .filter(({ name, price }) => name && price)
+            .map(({ id, name, price }) => ({ id, name, price }));
 
         const db = getFirestore()
         const queryCollection = collection(db, 'Orders')
 
-        addDoc(queryCollection, order)
-        .then(resp => console.log(resp))
-        .catch(err => console.log(err))
-        .finally(()=>{})
+        {
+            dataForm.validateEmail == dataForm.email ?
+
+            addDoc(queryCollection, order)
+                .then(resp => setId(resp.id))
+                .catch(err => console.log(err))
+                .finally(() => {
+                    emptyCart()
+                    setDataForm({
+                        name: '',
+                        phone: '',
+                        email: ''
+                    })
+                })
+
+            : window.alert("Your emails does not match")
+        }
     }
 
-    const handleOnChange = (event) =>{
+    const handleOnChange = (event) => {
         setDataForm({
             ...dataForm,
             [event.target.name]: event.target.value
         })
     }
     return (
-        <InputContainer>
-            <h2>Complete this form</h2>
-            <form onSubmit={generateOrder}>
-                <Input
-                    type='text'
-                    name='name'
-                    placeholder='enter name'
-                    onChange={handleOnChange}
-                    required
-                    value={dataForm.name}
-                />
+        <>
+            <InputContainer>
+                <h2>Complete this form to complete your purchase</h2>
+                <CustomerForm onSubmit={generateOrder}>
+                    <Input
+                        type='text'
+                        name='name'
+                        placeholder='Enter your Name'
+                        onChange={handleOnChange}
+                        required
+                        value={dataForm.name}
+                    />
 
-                <Input
-                    type='text'
-                    name='phone'
-                    placeholder='enter phone'
-                    onChange={handleOnChange}
-                    required
-                    value={dataForm.phone}
-                />
+                    <Input
+                        type='text'
+                        name='phone'
+                        placeholder='Enter your Phone Number'
+                        onChange={handleOnChange}
+                        required
+                        value={dataForm.phone}
+                    />
 
-                <Input
-                    type='text'
-                    name='email'
-                    placeholder='enter email'
-                    onChange={handleOnChange}
-                    required
-                    value={dataForm.email}
-                />
+                    <Input
+                        type='text'
+                        name='email'
+                        placeholder='Enter your Email'
+                        onChange={handleOnChange}
+                        required
+                        value={dataForm.email}
+                    />
 
-                <Input
-                    type='text'
-                    name='validateEmail'
-                    placeholder='validate Email'
-                    onChange={handleOnChange}
-                    // required
-                    // value={dataForm.validateEmail}
-                />
-                <button>Generate Order</button>
-            </form>
-        </InputContainer>
+                    <Input
+                        type='text'
+                        name='validateEmail'
+                        placeholder='Validate your Email'
+                        onChange={handleOnChange}
+                        required
+                        value={dataForm.validateEmail}
+                    />
+                    <Button>Generate Order</Button>
+                </CustomerForm>
+            </InputContainer>
+        </>
     )
 }
 
